@@ -55,4 +55,5 @@ def ret():
 
     return resp.text, resp.status_code
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
