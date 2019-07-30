@@ -54,7 +54,7 @@ def ret():
         #id_token = jwt.decode(j['id_token'], client_secret, algorithms=['RS256'])
         id_token = jwt.decode(j['id_token'], verify=False)
         print("id_token decoded: {}".format(id_token))
-        result_string = json.dumps(id_token_headers, indent=2) + "<br/>" + json.dumps(id_token, indent=2)
+        result_string = json.dumps(id_token_headers, indent=2) + " " + json.dumps(id_token, indent=2)
         return Response(result_string, status=200, mimetype='application/json')
         #return result_string, 200
 
