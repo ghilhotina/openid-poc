@@ -1,4 +1,4 @@
-import flask, base64, requests, jwt
+import flask, base64, requests, jwt, json
 
 from flask import request
 from flask_restful import Api, Resource, reqparse
