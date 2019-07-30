@@ -11,7 +11,7 @@ endpoint_token=endpoint_base+"/realms/sfb-dev/protocol/openid-connect/token"
 
 client_id="zenvia-gerenciador-web"
 client_secret="7835cd41-71fb-4f2c-832c-cc71d2ca6adc"
-redirect_uri="https://openid-return.free.beeceptor.com"
+redirect_uri="https://openid-poc.herokuapp.com/return"
 
 @app.route("/")
 def index():
@@ -25,7 +25,7 @@ def auth():
                 "&scope=openid" +
                 "&client_id=zenvia-gerenciador-web" +
                 "&state=af0ifjsldkj" +
-                "&redirect_uri=teste")
+                "&redirect_uri=" + redirect_uri)
     return flask.redirect(url_redirect)
 
 @app.route("/return")
