@@ -47,15 +47,14 @@ def ret():
 
     if resp.status_code == 200:
         j = resp.json()
-        print("json: {}".format(j))
-        print("id_token coded: {}".format(j['id_token']))
+        #print("id_token coded: {}".format(j['id_token']))
         id_token_headers = jwt.get_unverified_header(j['id_token'])
         print("unverified_headers: {}".format(id_token_headers))
         #id_token = jwt.decode(j['id_token'], client_secret, algorithms=['RS256'])
         id_token = jwt.decode(j['id_token'], verify=False)
         print("id_token decoded: {}".format(id_token))
-        result_string = str(id_token_headers) + "<br/>" + str(id_token)
-        return result_string, 200
+        #result_string = str(id_token_headers) + "<br/>" + str(id_token)
+        return id_token, 200
 
     return resp.text, resp.status_code
 
