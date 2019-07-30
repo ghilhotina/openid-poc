@@ -13,6 +13,10 @@ client_id="zenvia-gerenciador-web"
 client_secret="7835cd41-71fb-4f2c-832c-cc71d2ca6adc"
 redirect_uri="https://openid-return.free.beeceptor.com"
 
+@app.route("/")
+def index():
+    return "OPEN ID CONNECT HOMEPAGE", 200
+
 @app.route("/auth")
 def auth():
     print("Redirecting...")
