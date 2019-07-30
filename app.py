@@ -53,8 +53,8 @@ def ret():
         #id_token = jwt.decode(j['id_token'], client_secret, algorithms=['RS256'])
         id_token = jwt.decode(j['id_token'], verify=False)
         print("id_token decoded: {}".format(id_token))
-        #result_string = str(id_token_headers) + "<br/>" + str(id_token)
-        return id_token, 200
+        result_string = json.dumps(id_token_headers, indent=2) + "<br/>" + json.dumps(id_token, indent=2)
+        return result_string, 200
 
     return resp.text, resp.status_code
 

@@ -1,4 +1,4 @@
-import jwt
+import jwt, json
 
 client_secret="7835cd41-71fb-4f2c-832c-cc71d2ca6adc"
 
@@ -7,5 +7,6 @@ rec_id_token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICItMUNSWnFjak5Y
 id_token_headers = jwt.get_unverified_header(rec_id_token)
 #id_token = jwt.decode(rec_id_token, client_secret, algorithms=['HS256'])
 id_token = jwt.decode(rec_id_token, verify=False)
-result_string = str(id_token_headers) + "<br/>" + str(id_token)
-print("id_token decoded: {}".format(result_string))
+result_string = json.dumps(id_token_headers, indent=2) + "<br/>" + json.dumps(id_token, indent=2)
+print(result_string)
+#print(json.dumps(id_token, indent=2))
